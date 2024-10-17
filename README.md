@@ -1,10 +1,10 @@
-# Nome do projeto
+# Achados e Perdidos
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)                          // Muda essas imagens
+![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)              // Muda essas imagens
+![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)                                // Muda essas imagens
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)                  // Muda essas imagens
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)          // Muda essas imagens
 
 <img src="https://imgur.com/a/IRh43n9" alt="Logo ByteBusters">
 
@@ -23,6 +23,10 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Classe Item
 - [ ] Classe Estoque
 
+## 🖼️ Diagrama de Classe
+
+<img src="ainda sem link" alt="Imagem do Diagrama">
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
@@ -31,17 +35,11 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 - Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
 - Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
 
-## 🚀 Instalando <nome_do_projeto>
+## 🚀 Instalando <Achados e Perdidos>
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para utilizar o Achados e perdidos, siga estas etapas:
 
-Linux e macOS:
-
-```
-<comando_de_instalação>
-```
-
-Windows:
+Biblitecas Utilizadas:
 
 ```
 <comando_de_instalação>
