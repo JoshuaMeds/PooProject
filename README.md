@@ -63,15 +63,15 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="#" title="https://github.com/kempa9077">
-        <img src="https://imgur.com/uNDplJc" width="100px;" alt="Foto do Github do Kempa"/><br>
+        <img src="https://avatars.githubusercontent.com/u/157315735?v=4" width="100px;" alt="Foto do Github do Kempa"/><br>
         <sub>
           <b>Lucas Kempa</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="#" title="defina o título do link">
-        <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Github do Davi"/><br>
+      <a href="#" title="https://github.com/DaviMartins26">
+        <img src="https://avatars.githubusercontent.com/u/177854413?v=4" width="100px;" alt="Foto do Github do Davi"/><br>
         <sub>
           <b>Davi Martins</b>
         </sub>
@@ -79,7 +79,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
       <a href="#" title="https://github.com/JoshuaMeds">
-        <img src="https://imgur.com/RyAxCQ3" width="100px;" alt="Foto do Github do Joshua"/><br>
+        <img src="https://avatars.githubusercontent.com/u/161641155?v=4" width="100px;" alt="Foto do Github do Joshua"/><br>
         <sub>
           <b>Joshua Mendes</b>
         </sub>
