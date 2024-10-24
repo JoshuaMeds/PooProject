@@ -35,7 +35,12 @@ public class Funcionario extends Pessoa {
 
     }
 
-    public void alterarCredenciais(Pessoa p){
-
+    public void alterarCredenciais(Pessoa p, String novoNome) {
+        if (p instanceof Usuario) {
+            p.setNome(novoNome);
+            System.out.println("Nome do usuário alterado para: " + novoNome);
+        } else {
+            System.out.println("Funcionário só pode alterar credenciais de usuários.");
+        }
     }
 }
