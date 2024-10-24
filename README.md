@@ -6,7 +6,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)                  // Muda essas imagens
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)          // Muda essas imagens
 
-<img src="https://imgur.com/a/IRh43n9" alt="Logo ByteBusters">
+<img src="https://ibb.co/HdqYs7d" alt="Logo ByteBusters">
 
 > Projeto para criação de um Achados e Perdidos em java.
 
