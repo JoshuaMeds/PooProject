@@ -1,11 +1,5 @@
 # Achados e Perdidos
 
-![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)                          // Muda essas imagens
-![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)              // Muda essas imagens
-![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)                                // Muda essas imagens
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)                  // Muda essas imagens
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)          // Muda essas imagens
-
 <img src="https://raw.githubusercontent.com/JoshuaMeds/PooProject/refs/heads/main/img/bytebusters_logo1%202.png" alt="Logo ByteBusters">
 
 > Projeto para criação de um Achados e Perdidos em java.
@@ -25,15 +19,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 ## 🖼️ Diagrama de Classe
 
-<img src="ainda sem link" alt="Imagem do Diagrama">
-
-## 💻 Pré-requisitos
-
-Antes de começar, verifique se você atendeu aos seguintes requisitos:
-
-- Você instalou a versão mais recente de `<Java>`
-- Você tem uma máquina `<Windows / Linux / Mac>`. Indique qual sistema operacional é compatível / não compatível.
-- Você leu `<guia / link / documentação_relacionada_ao_projeto>`.
+<img src="https://raw.githubusercontent.com/JoshuaMeds/PooProject/refs/heads/main/Diagramas/diagrama-de-classes.jpg" alt="Imagem do Diagrama">
 
 ## 🚀 Instalando <Achados e Perdidos>
 
@@ -47,13 +33,11 @@ Biblitecas Utilizadas:
 
 ## ☕ Usando <Achados e Perdidos>
 
-Para usar <nome_do_projeto>, siga estas etapas:
+Para usar o Achados e perdidos, siga estas etapas:
 
 ```
 <exemplo_de_uso>
 ```
-
-Adicione comandos de execução e exemplos que você acha que os usuários acharão úteis. Forneça uma referência de opções para pontos de bônus!
 
 ## 🤝 Colaboradores
 
