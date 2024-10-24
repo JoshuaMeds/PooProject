@@ -32,6 +32,7 @@ public class Funcionario extends Pessoa {
 
     public void visualizarRetiradas(){
 
+
     }
 
     public void alterarCredenciais(Pessoa p, String novoNome) {
