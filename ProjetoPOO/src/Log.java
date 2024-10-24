@@ -18,6 +18,6 @@ public class Log {
     public String logAdicionar(Funcionario f, Item i, Estoque e){
         d = LocalDateTime.now();
 
-        return System.out.printf("%s - %s - %s - %s", f.nome, i.nome, e.bloco, d ).toString();
+        return System.out.printf("%s - %s - %s - %s", f.nome, i.nomeItem, e.bloco, d ).toString();
     }
 }

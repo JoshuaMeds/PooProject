@@ -12,8 +12,4 @@ public class Estoque {
     public void setBloco(int bloco) {
         this.bloco = bloco;
     }
-
-    public void adicionarItemEstoque(Item i){
-        ArrayList<String> deposito = new ArrayList<>();
-    }
 }
