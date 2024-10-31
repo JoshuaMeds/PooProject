@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -46,7 +47,7 @@ public class Main {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("Hello world!");
         Scanner sc = new Scanner(System.in);
         int escolha = 0;
@@ -54,6 +55,7 @@ public class Main {
         System.out.println("Escolha oque fazer:");
         System.out.println("1-Cadastrar Usuario");
         System.out.println("2-Cadastrar Item");
+        System.out.println("3-Printar itens do txt");
         escolha = sc.nextInt();
 
         switch (escolha){
@@ -66,6 +68,20 @@ public class Main {
                 Item i = criarItem();
                 i.salvarEmArquivo();
                 break;
+            case 3:
+                try {
+                    TxtLog lerEscrever = new TxtLog();
+                    String caminhoLeitura = "src/funcionarios.txt";
+                    String conteudo = TxtLog.leitor(caminhoLeitura);
+                    System.out.println("Conteído Lido:");
+                    System.out.println(conteudo);
+                    lerEscrever.escritor(caminhoLeitura, conteudo);
+                    System.out.println("Conteúdo escrito em: " + caminhoLeitura);
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+
+
             default:
                 System.out.println("Erro");
         }

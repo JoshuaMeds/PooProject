@@ -1,0 +1,16 @@
+Nome: Teste
+Categoria: Testante
+Descrição: Um homem que testa
+---------------------------
+Nome: Teste2
+Categoria: Tete
+Descrição: outra pessoa que testa
+---------------------------
+Nome: teste3,Categoria: aaaDescrição: nerdola
+---------------------------
+Nome: no,Categoria: fim / Descrição: aaaaaaaaa
+---------------------------
+Nome: fifa / Categoria: cod / Descrição: o
+---------------------------
+Nome:  / Categoria:  / Descrição: 
+---------------------------
