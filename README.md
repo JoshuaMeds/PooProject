@@ -51,6 +51,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         <sub>
           <b>Lucas Kempa</b>
         </sub>
+
       </a>
     </td>
     <td align="center">

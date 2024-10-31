@@ -10,7 +10,7 @@ public class Testes {
 
         if(escolha == 1){
             Usuario user = new Usuario("123", "Carlos", 1);
-            Funcionario func = new Funcionario("132", "Adilson", 2);
+            Funcionario fun = new Funcionario("132", "Adilson", 2);
             Admin admin = new Admin("321", "adm", 3);
 
             // Para atender o Requisito 8,é necessario criar esta chamada Polimorfica
@@ -18,19 +18,19 @@ public class Testes {
             adm.alterarCredenciais(user, "Andre");
 
             System.out.println("Nome original " + user.getNome());
-            System.out.println("Nome original " + func.getNome());
+            System.out.println("Nome original " + fun.getNome());
 
             // Funcionário alterando nome de um usuário
-            func.alterarCredenciais(user, "Carlos Modificado");
+            fun.alterarCredenciais(user, "Carlos Modificado");
             // Admin alterando nome de um funcionário
-            func.alterarCredenciais(func, "Adilson Modificado");
+            fun.alterarCredenciais(fun, "Adilson Modificado");
 
             // Requisito 8 Polimorfico
             adm.alterarCredenciais(user, "Andre");
-            adm.alterarCredenciais(func,"Teste Fun");
+            adm.alterarCredenciais(fun,"Teste Fun");
             // Exibindo mudanças
             System.out.println("Nome modificado " + user.getNome()); // Carlos Modificado
-            System.out.println("Nome Modificado " + func.getNome()); // Adilson Modificado
+            System.out.println("Nome Modificado " + fun.getNome()); // Adilson Modificado
         }
         if(escolha ==2){
                 System.out.println("teste");

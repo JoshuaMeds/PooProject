@@ -1,4 +1,5 @@
-import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Item {
     private String nomeItem;
@@ -31,16 +32,13 @@ public class Item {
         return nomeItem;
     }
 
-    public String criarItem(String nomeItem, String categoria, String descricao){
-        System.out.println("Área de Cadastro de Item!" +
-                "Preencha todos os campos para cadastrar o Item:");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Cadastre o nome do Item:");
-        nomeItem = scanner.nextLine();
-        System.out.println("Cadastre a categoria do produto:");
-        categoria = scanner.nextLine();
-        System.out.println("De uma breve descrição ao produto:");
-        descricao = scanner.nextLine();
-        return System.out.printf("O Item %s foi cadastrado com sucesso", nomeItem).toString();
+    public void salvarEmArquivo() {
+        try (FileWriter writer = new FileWriter("itens.txt", true)) { // true para não sobrescrever
+            writer.write("Nome: " + this.nomeItem + " / "+"Categoria: " + this.categoria+ " / " +"Descrição: " + this.descricao + "\n");
+            writer.write("---------------------------\n");
+            System.out.println("Item salvo com sucesso no arquivo!");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar o item no arquivo: " + e.getMessage());
+        }
     }
 }
