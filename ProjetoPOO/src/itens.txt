@@ -12,3 +12,5 @@ Nome: no,Categoria: fim / Descrição: aaaaaaaaa
 ---------------------------
 Nome: fifa / Categoria: cod / Descrição: o
 ---------------------------
+Nome:  / Categoria:  / Descrição: 
+---------------------------

@@ -51,7 +51,7 @@ public class Funcionario extends Pessoa {
         try (FileWriter writer = new FileWriter("funcionarios.txt", true)) { // true para não sobrescrever
             writer.write("Nome: " + this.nome + " / "+"CPF: " + this.cpf+ " / " +"Registro: " + this.registro + "\n");
             writer.write("---------------------------\n");
-            System.out.println("Item salvo com sucesso no arquivo!");
+            System.out.println("Pessoa Registrada com sucesso no arquivo!");
         } catch (IOException e) {
             System.out.println("Erro ao salvar o item no arquivo: " + e.getMessage());
         }

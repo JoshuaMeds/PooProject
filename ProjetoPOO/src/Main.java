@@ -13,39 +13,59 @@ public class Main {
         String descricao = scanner.nextLine();
         return new Item(nomeItem, descricao, categoria);
     }
+
+    // Criar cliente
+    public static Usuario criarUser(){
+        System.out.println("Área de Cadastro de Usuario!" +
+                "Preencha todos os campos para cadastrar um usuario:");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Informe o cpf");
+        String cpf = sc.nextLine();
+        System.out.println("Informe o nome");
+        String nome = sc.nextLine();
+        System.out.println("Informe o Registro");
+        int matricula = sc.nextInt();
+        return new Usuario(cpf,nome,matricula);
+    }
+
+    // Criar funcionário e admin
+    public static Funcionario criarUser2() {
+        System.out.println("Área de Cadastro de Usuario!" +
+                "Preencha todos os campos para cadastrar um usuario:");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Informe o cpf");
+        String cpf = sc.nextLine();
+        System.out.println("Informe o nome");
+        String nome = sc.nextLine();
+        System.out.println("Informe o Registro");
+        int matricula = sc.nextInt();
+        // Cadastrar como ADM (A)
+        // if A -->  return new Admin(cpf,nome,matricula);
+        // else --> return new Funcionario(cpf,nome,matricula)
+        return new Admin(cpf,nome,matricula);
+    }
+
+
     public static void main(String[] args) {
         System.out.println("Hello world!");
-
-        Usuario user = new Usuario("123", "Carlos", 1);
-        Funcionario fun = new Funcionario("132", "Adilson", 2);
-        Funcionario adm = new Admin("1", "administro", 4);
-
         Scanner sc = new Scanner(System.in);
         int escolha = 0;
 
         System.out.println("Escolha oque fazer:");
-        System.out.println("1-Cadastrar usuario");
+        System.out.println("1-Cadastrar Usuario");
+        System.out.println("2-Cadastrar Item");
         escolha = sc.nextInt();
 
         switch (escolha){
             case 1:
-                System.out.println("Informe o cpf");
-                String cpf = sc.next();
-                System.out.println("Informe o nome");
-                String nome = sc.next();
-                System.out.println("Informe o Registro");
-                int registro = sc.nextInt();
-
-                Funcionario u = new Funcionario(cpf,nome,registro);
+                Usuario u = criarUser();
                 u.registrarPessoa();
-
-                System.out.println("Usuario de nome "+nome+" cpf "+cpf+" e registro "+registro+" Adicionado ao Sistema");
                 break;
 
             case 2:
-                System.out.println("estro 2");
                 Item i = criarItem();
                 i.salvarEmArquivo();
+                break;
             default:
                 System.out.println("Erro");
         }
