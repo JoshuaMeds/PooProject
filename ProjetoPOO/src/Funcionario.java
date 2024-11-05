@@ -46,6 +46,22 @@ public class Funcionario extends Pessoa {
         }
     }
 
+    public void retirarItemEstoque(Estoque estoque, Item i) {
+        if (estoque.removerItem(i)) {
+            registrarRetirada(i);
+        }
+    }
+
+    public void registrarRetirada(Item i) {
+        try (FileWriter writer = new FileWriter("retiradas.txt", true)) { // true para adicionar ao final do arquivo
+            writer.write("Nome do Funcionário: " + this.nome + ", CPF: " + this.cpf + ", Item Retirado: " + i.getNomeItem() + "\n");
+            writer.write("---------------------------\n");
+            System.out.println("Retirada registrada com sucesso no arquivo!");
+        } catch (IOException e) {
+            System.out.println("Erro ao registrar a retirada: " + e.getMessage());
+        }
+    }
+
     @Override
     public void registrarPessoa(){
         try (FileWriter writer = new FileWriter("funcionarios.txt", true)) { // true para não sobrescrever
@@ -56,4 +72,5 @@ public class Funcionario extends Pessoa {
             System.out.println("Erro ao salvar o item no arquivo: " + e.getMessage());
         }
     }
+
 }
