@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Estoque {
     private int bloco;
@@ -17,11 +18,27 @@ public class Estoque {
         this.bloco = bloco;
     }
 
-    // adicionar um item ao estoque
-    public void adicionarItem(Item p) {
-        itens.add(p);
-        System.out.println("Item adicionado ao estoque: " + p.getNomeItem());
+    public List<Item> getItens() {
+        return itens;
     }
+
+
+    // adicionar um item ao estoque
+    public void adicionarItem(String nomeItem) {
+        for (Item item : itens) {
+            if (item.getNomeItem().equalsIgnoreCase(nomeItem)) { // Verifica se o item já está no estoque
+                System.out.println("Item " + nomeItem + " já está no estoque.");
+                return;
+            }
+        }
+        System.out.println("Item " + nomeItem + " não encontrado no estoque.");
+    }
+
+    public void adicionarItem(Item item) {
+        itens.add(item); // Adiciona o item ao estoque
+        System.out.println("Item " + item.getNomeItem() + " adicionado ao estoque.");
+    }
+
 
     // Remover um item do estoque
     public boolean removerItem(Item item) {

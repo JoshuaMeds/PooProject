@@ -51,7 +51,6 @@ public class Funcionario extends Pessoa {
             registrarRetirada(i);
         }
     }
-
     public void registrarRetirada(Item i) {
         try (FileWriter writer = new FileWriter("retiradas.txt", true)) { // true para adicionar ao final do arquivo
             writer.write("Nome do Funcionário: " + this.nome + ", CPF: " + this.cpf + ", Item Retirado: " + i.getNomeItem() + "\n");
