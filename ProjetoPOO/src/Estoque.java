@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Estoque {
     private int bloco;
@@ -26,7 +25,7 @@ public class Estoque {
 
     public void adicionarItemAoEstoque(Item item) {
         itens.add(item); // Adiciona o item ao estoque
-        System.out.println("Item ID#" + item.getId() + " adicionado ao estoque.");
+        System.out.println("Item ID#" + item.getIdItem() + " adicionado ao estoque.");
     }
 
 
@@ -48,7 +47,7 @@ public class Estoque {
         } else {
             System.out.println("Itens no estoque:");
             for (Item item : itens) {
-                System.out.println("ID:" + item.getId() +"Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descrição: " + item.getDecricao());
+                System.out.println("ID:" + item.getIdItem() +"Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descrição: " + item.getDecricao());
             }
         }
     }

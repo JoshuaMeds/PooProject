@@ -1,24 +1,30 @@
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Item {
-    private static int contador = 0;
-    private int id;
+    private static int contador;
+    private int idItem;
     private String nomeItem;
     private String descricao;
     private String categoria;
     public Item (){
-        this.id = gerarId();
+        this.idItem = gerarId();
 
+    }
+
+    public void setIdItem(int idItem) {
+        this.idItem = idItem;
     }
 
     public int gerarId(){
         return contador++;
     }
 
-    public int getId() {
-        return id;
+    public int getIdItem() {
+        return idItem;
+    }
+
+    public static void setContador(int contador) {
+        Item.contador = contador + 1;
     }
 
     public void setCategoria(String categoria) {
@@ -58,17 +64,8 @@ public class Item {
         this.descricao = descricao;
         this.categoria = categoria;
 
-        System.out.println("Item ID#" + this.id + " registrado com sucesso!");
+        System.out.println("Item ID#" + this.idItem + " registrado com sucesso!");
 
     }
 
-    public void salvarEmArquivo() {
-        try (FileWriter writer = new FileWriter("itens.txt", true)) { // true para não sobrescrever
-            writer.write("ID:" + this.id + "Nome: " + this.nomeItem + " / "+"Categoria: " + this.categoria+ " / " +"Descrição: " + this.descricao + "\n");
-            writer.write("---------------------------\n");
-            System.out.println("Item salvo com sucesso no arquivo!");
-        } catch (IOException e) {
-            System.out.println("Erro ao salvar o item no arquivo: " + e.getMessage());
-        }
     }
-}

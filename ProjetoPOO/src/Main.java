@@ -29,6 +29,10 @@ public class Main {
         try {
             while (escolha != 0) {
 
+                adi.armazenarArrayList(adi.carregarDoArquivo());
+                Item i = new Item();
+                i.setContador(adi.RetornarIdTxt());
+
                 System.out.println("===============================");
                 System.out.println("Escolha uma das opções abaixo:");
                 System.out.println("1 - Cadastrar Usuário");
@@ -55,6 +59,7 @@ public class Main {
                         Item item = new Item();
                         item.gerarItem();
                         adi.armazenarItem(item);
+                        adi.salvarEmArquivo();
                     }
                     case 3 -> {
                         System.out.println("Opção selecionada: Exibir itens cadastrados");
@@ -72,6 +77,7 @@ public class Main {
                         int id = sc.nextInt();
                         estoque.adicionarItemAoEstoque(adi.selecionarItem(id));
                         adi.retirarItem(id);
+                        adi.salvarEmArquivo();
                     }
 
                     case 5 -> {
