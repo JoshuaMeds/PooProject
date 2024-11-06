@@ -9,7 +9,7 @@ public class Testes {
         int escolha = sc.nextInt();
 
         if(escolha == 1){
-            Usuario user = new Usuario("123", "Carlos", 1);
+            Usuario user = new Usuario("123", "Carlos", 1, 1111);
             Funcionario fun = new Funcionario("132", "Adilson", 2);
             Admin admin = new Admin("321", "adm", 3);
 
