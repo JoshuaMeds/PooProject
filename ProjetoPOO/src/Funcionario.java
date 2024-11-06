@@ -5,7 +5,8 @@ public class Funcionario extends Pessoa {
     protected int registro;
 
     Funcionario(String cpf, String nome, int registro){
-        super(cpf, nome);
+        this.cpf = cpf;
+        this.nome = nome;
         this.registro = registro;
     }
 
@@ -46,9 +47,9 @@ public class Funcionario extends Pessoa {
         }
     }
 
-    public void retirarItemEstoque(Estoque estoque, Item i) {
-        if (estoque.removerItem(i)) {
-            registrarRetirada(i);
+    public void retirarItemEstoque(Estoque estoque, int id) {
+        if (estoque.retirarItem(id)) {
+//            registrarRetirada();
         }
     }
     public void registrarRetirada(Item i) {

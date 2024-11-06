@@ -1,54 +1,107 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Estoque {
     private int bloco;
-    private ArrayList<Item> itens;
+    private ArrayList<Item> itens =  new ArrayList<>();
 
     public Estoque(int bloco) {
         this.bloco = bloco;
-        this.itens = new ArrayList<>();
     }
 
     public int getBloco() {
         return bloco;
     }
 
-    public void setBloco(int bloco) {
-        this.bloco = bloco;
-    }
+    public int RetornarIdTxt(){
+        int c = 0;
 
-    public ArrayList<Item> getItens() {
-        return itens;
-    }
-
-
-
-    public void adicionarItemAoEstoque(Item item) {
-        itens.add(item); // Adiciona o item ao estoque
-        System.out.println("Item ID#" + item.getIdItem() + " adicionado ao estoque.");
-    }
-
-
-    // Remover um item do estoque
-    public boolean removerItem(Item item) {
-        if (itens.remove(item)) {
-            System.out.println("Item:" + item.getNomeItem() + " foi removido do estoque");
-            return true;
-        } else {
-            System.out.println("Item não encontrado no estoque.");
-            return false;
-        }
-    }
-
-    // exibir os itens do estoque
-    public void listarItens() {
-        if (itens.isEmpty()) {
-            System.out.println("O estoque está vazio.");
-        } else {
-            System.out.println("Itens no estoque:");
-            for (Item item : itens) {
-                System.out.println("ID:" + item.getIdItem() +"Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descrição: " + item.getDecricao());
+        for (Item item : itens) {
+            if (item.getIdItem() > c) {
+                c = item.getIdItem();
             }
         }
+        return c;
+    }
+
+    public Item selecionarItemPos(int pos){
+        if(pos < 0){
+            pos ++;
+        }
+        return itens.get(pos);
+    }
+
+
+    public void armazenarItem(Item i){
+        itens.add(i);
+    }
+
+    public boolean retirarItem(int id){
+
+        for (Item item : itens) {
+            if (item.getIdItem() == id) {
+                itens.remove(item);
+                return true;
+            }
+        }
+        System.out.println("ID inválido ou não encontrado");
+        return false;
+    }
+
+    public Item selecionarItem(int id){
+        for (Item item : itens) {
+            if (item.getIdItem() == id) {
+                return item;
+            }
+        }
+        System.out.println("ID inválido ou não encontrado");
+        return null;
+    }
+
+    public void salvarEmArquivo() {
+        try (FileWriter writer = new FileWriter("estoque.txt")) { // true para acrescentar ao final
+            for (Item i : itens) {
+                writer.write("ID:" + i.getIdItem() + ", Nome:" + i.getNomeItem() + ", Categoria:" + i.getCategoria() + ", Descricao:" + i.getDecricao() + "\n");
+            }
+            System.out.println("Todos os itens foram salvos com sucesso no arquivo!");
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar os itens no arquivo: " + e.getMessage());
+        }
+    }
+
+
+
+    public void armazenarArrayList(ArrayList<Item> ar){
+        this.itens = ar;
+    }
+
+    public static ArrayList<Item> carregarDoArquivo() {
+        ArrayList<Item> itens = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("estoque.txt"))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                if (linha.startsWith("ID:")) { // Verifica se é uma linha de dados
+                    String[] partes = linha.split(", ");
+                    int id = Integer.parseInt(partes[0].split(":")[1]);
+                    String nome = partes[1].split(":")[1];
+                    String categoria = partes[2].split(":")[1];
+                    String descricao = partes[3].split(":")[1];
+                    Item i = new Item();
+                    i.setNomeItem(nome);
+                    i.setCategoria(categoria);
+                    i.setDescricao(descricao);
+                    i.setIdItem(id);
+                    itens.add(i);
+
+                }
+            }
+            System.out.println("//Estoque carregado do arquivo com sucesso!\n");
+        } catch (IOException e) {
+            System.out.println("Erro ao carregar itens do arquivo: " + e.getMessage());
+        }
+        return itens;
     }
 }

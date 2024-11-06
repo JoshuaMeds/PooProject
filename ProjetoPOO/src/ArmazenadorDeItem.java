@@ -5,11 +5,20 @@ public class ArmazenadorDeItem {
     private ArrayList<Item> itens =  new ArrayList<>();
 
     public int RetornarIdTxt(){
-        Item e = selecionarItemPos(itens.size() - 1);
-        return e.getIdItem();
+        int c = 0;
+
+        for (Item item : itens) {
+            if (item.getIdItem() > c) {
+                c = item.getIdItem();
+            }
+        }
+        return c;
     }
 
     public Item selecionarItemPos(int pos){
+        if(pos < 0){
+            pos ++;
+        }
         return itens.get(pos);
     }
 
@@ -76,7 +85,7 @@ public class ArmazenadorDeItem {
 
                 }
             }
-            System.out.println("Itens carregados do arquivo com sucesso!");
+            System.out.println("\n//Itens carregados do arquivo com sucesso!\n");
         } catch (IOException e) {
             System.out.println("Erro ao carregar itens do arquivo: " + e.getMessage());
         }

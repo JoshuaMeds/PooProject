@@ -3,22 +3,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static Usuario criarUser() {
-        System.out.println("Área de Cadastro de Usuário!");
-        System.out.println("Preencha todos os campos para cadastrar um usuário:");
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Informe o CPF: ");
-        String cpf = sc.nextLine();
-        System.out.print("Informe o nome: ");
-        String nome = sc.nextLine();
-        System.out.print("Informe o registro: ");
-        int matricula = sc.nextInt();
-        return new Usuario(cpf, nome, matricula);
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArmazenadorDeItem adi = new ArmazenadorDeItem();
+        ArmazenadorDeUsuario adu = new ArmazenadorDeUsuario();
         Estoque estoque = new Estoque(1);
         Funcionario funcionario = new Funcionario("123.456.789-00", "João Silva", 1234);
 
@@ -30,8 +18,23 @@ public class Main {
             while (escolha != 0) {
 
                 adi.armazenarArrayList(adi.carregarDoArquivo());
+                adu.armazenarArrayList(adu.carregarDoArquivo());
+                estoque.armazenarArrayList(estoque.carregarDoArquivo());
                 Item i = new Item();
-                i.setContador(adi.RetornarIdTxt());
+
+                if(adi.RetornarIdTxt() > estoque.RetornarIdTxt()){
+                    int c = adi.RetornarIdTxt();
+                    i.setContador(c);
+                } else if (adi.RetornarIdTxt() < estoque.RetornarIdTxt()) {
+                    int c = estoque.RetornarIdTxt();
+                    i.setContador(c);
+                } else {
+                    int c = adi.RetornarIdTxt();
+                    i.setContador(c);
+                }
+
+                Usuario u = new Usuario();
+                u.setContador(adu.RetornarIdTxt());
 
                 System.out.println("===============================");
                 System.out.println("Escolha uma das opções abaixo:");
@@ -43,16 +46,17 @@ public class Main {
                 System.out.println("0 - Sair");
                 System.out.println("===============================");
 
-                System.out.print("Opção: ");
+                System.out.print("Opção: \n");
                 escolha = sc.nextInt();
                 sc.nextLine(); // Consumir a quebra de linha após o número
 
                 switch (escolha) {
                     case 1 -> {
                         System.out.println("Opção selecionada: Cadastrar Usuário");
-                        Usuario u = criarUser();
-                        u.registrarPessoa();
-                        System.out.println("Usuário cadastrado com sucesso!");
+                        Usuario user = new Usuario();
+                        user.registrarPessoa();
+                        adu.armazenarUser(user);
+                        adu.salvarEmArquivo();
                     }
                     case 2 -> {
                         System.out.println("Opção selecionada: Registrar Item");
@@ -72,38 +76,35 @@ public class Main {
                         System.out.println("Conteúdo escrito em: " + caminhoLeitura);
                     }
                     case 4 -> {
-                        System.out.println("Opção selecionada: Adicionar Item ao Estoque");
-                        System.out.print("Informe o ID do item que deseja adicionar ao estoque: ");
-                        int id = sc.nextInt();
-                        estoque.adicionarItemAoEstoque(adi.selecionarItem(id));
-                        adi.retirarItem(id);
-                        adi.salvarEmArquivo();
+                        System.out.println("Opção selecionada: Adicionar Item ao Estoque\n");
+
+                        System.out.println("O Item a ser adicionado já existe no sistema? \nDigite 1 para 'sim' e 2 para 'nao'");
+                        int yn = sc.nextInt();
+
+                        if (yn == 1) {
+                            System.out.println("Opção selecionada: 'SIM'\n");
+                            System.out.print("Informe o ID do item que deseja adicionar ao estoque: \n");
+                            int id = sc.nextInt();
+                            estoque.armazenarItem(adi.selecionarItem(id));
+                            adi.retirarItem(id);
+                            adi.salvarEmArquivo();
+                            estoque.salvarEmArquivo();
+                        } else if (yn == 2) {
+                            System.out.println("\nOpção selecionada: 'NAO'\n");
+                            System.out.println("Registrar Item\n");
+                            Item item = new Item();
+                            item.gerarItem();
+                            estoque.armazenarItem(item);
+                            estoque.salvarEmArquivo();
+                        } else{
+                            System.out.println("\nOPCAO INVALIDA\n");
+                        }
                     }
 
                     case 5 -> {
                         System.out.println("Opção selecionada: Retirar Item do Estoque");
                         System.out.println("Itens disponíveis no estoque:");
-                        estoque.listarItens();
 
-                        System.out.print("Digite o nome do item a ser retirado: ");
-                        String nomeItem = sc.nextLine();
-
-                        // Busca o item no estoque com base no nome
-                        Item itemParaRetirar = null;
-                        for (Item item : estoque.getItens()) {
-                            if (item.getNomeItem().equalsIgnoreCase(nomeItem)) {
-                                itemParaRetirar = item;
-                                break;
-                            }
-                        }
-
-                        if (itemParaRetirar != null) {
-                            funcionario.retirarItemEstoque(estoque, itemParaRetirar);
-                            funcionario.registrarRetirada(itemParaRetirar);
-                            System.out.println("Item retirado e registrado com sucesso!");
-                        } else {
-                            System.out.println("Item não encontrado no estoque.");
-                        }
                     }
                     case 0 -> System.out.println("Saindo do sistema... Até logo!");
                     default -> System.out.println("Erro: Opção inválida. Tente novamente.");

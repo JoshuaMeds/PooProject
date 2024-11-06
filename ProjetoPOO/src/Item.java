@@ -54,17 +54,17 @@ public class Item {
         System.out.println("Informe o nome do Item: ");
         String nome = sc.nextLine();
 
-        System.out.println("Informe a descrição do Item: ");
+        System.out.println("\nInforme a descrição do Item: ");
         String descricao = sc.nextLine();
 
-        System.out.println("Informe a categoria do Item: ");
+        System.out.println("\nInforme a categoria do Item: ");
         String categoria = sc.nextLine();
 
         this.nomeItem = nome;
         this.descricao = descricao;
         this.categoria = categoria;
 
-        System.out.println("Item ID#" + this.idItem + " registrado com sucesso!");
+        System.out.println("Item ID#" + this.idItem + " registrado com sucesso!\n");
 
     }
 

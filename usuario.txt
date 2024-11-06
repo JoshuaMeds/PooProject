@@ -1,0 +1,3 @@
+ID:1, Nome:user, CPF:123.456.789-10, Matricula:12345678
+ID:2, Nome:Lucas, CPF:123, Matricula:123
+ID:3, Nome:Seu Jao, CPF:3456, Matricula:6789

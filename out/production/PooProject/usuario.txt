@@ -1,4 +1,0 @@
-Nome: adilson / CPF: 2 / Matricula: 3
----------------------------
-Nome: Peixe / CPF: 245 / Matricula: 55
----------------------------
