@@ -1,9 +1,13 @@
 import java.io.IOException;
+import java.lang.reflect.Executable;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        ExcecoesPersonalizadas idE = new ExcecaoNoId("");
+        ExcecoesPersonalizadas aE = new ExcecaoAutorizacao("");
+        ExcecoesPersonalizadas vE = new ExcecaoValidacao("");
         Scanner sc = new Scanner(System.in);
         ArmazenadorDeItem adi = new ArmazenadorDeItem();
         ArmazenadorDeUsuario adu = new ArmazenadorDeUsuario();
@@ -122,3 +126,14 @@ public class Main {
         }
     }
 }
+
+
+//try {
+//ExcecaoPersonalizada excecao = new ExcecaoPersonalizada();
+//            excecao.setMensagem("Erro específico de validação"); // Define a mensagem
+//            throw excecao; // Lança a exceção com a mensagem personalizada
+//        } catch (ExcecaoPersonalizada e) {
+//        System.out.println("Mensagem da exceção: " + e.getMensagem());
+//        }
+//        }
+//        }
