@@ -25,10 +25,21 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Para utilizar o Achados e perdidos, siga estas etapas:
 
-Biblitecas Utilizadas:
+Todas as Biblitecas Utilizadas:
 
 ```
-<comando_de_instalação>
+<import java.io.IOException;>
+<import java.lang.reflect.Executable;>
+<import java.util.Scanner;>
+<import java.io.*;>
+<import java.util.ArrayList;>
+<import java.io.BufferedReader;>
+<import java.io.FileReader;>
+<import java.io.FileWriter;>
+<import java.time.LocalDate;>
+<import java.time.LocalDateTime;>
+<import java.util.Date;>
+
 ```
 
 ## ☕ Usando <Achados e Perdidos>
