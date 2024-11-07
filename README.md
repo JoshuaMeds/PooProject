@@ -11,7 +11,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [ ] Readme para Gitub
 - [ ] Trello
 - [ ] Classe Main
-- [ ] Classe Pessoa
+- [X] Classe Pessoa
 - [ ] Classe Funcionario
 - [ ] Classe Usuario
 - [ ] Classe Item
