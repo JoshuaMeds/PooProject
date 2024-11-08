@@ -36,7 +36,7 @@ public class ArmazenadorDeFuncionario {
     }
 
     public void salvarEmArquivo() throws IOException {
-        try (FileOutputStream fos = new FileOutputStream("funcionario.txt");
+        try (FileOutputStream fos = new FileOutputStream("Funcionario.txt");
              ObjectOutputStream os = new ObjectOutputStream(fos)) {
 
             for (Funcionario funcionario : funcionarios) {
@@ -51,7 +51,7 @@ public class ArmazenadorDeFuncionario {
 
     public static ArrayList<Funcionario> carregarDoArquivo() throws IOException {
         ArrayList<Funcionario> f = new ArrayList<>();
-        try (FileInputStream fis = new FileInputStream("funcionario.txt");
+        try (FileInputStream fis = new FileInputStream("Funcionario.txt");
              ObjectInputStream is = new ObjectInputStream(fis)) {
 
             while (true) {
