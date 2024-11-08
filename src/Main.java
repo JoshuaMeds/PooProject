@@ -123,6 +123,7 @@ public class Main {
                     System.out.println("6 - Modificar Dados de Usuário");
                     System.out.println("7 - Exibir Usuários e Funcionarios Cadastrados");
                     System.out.println("8 - Cadastrar Funcionario");
+                    System.out.println("9 - Executar Interface Grafica");
                     System.out.println("0 - Sair");
                     System.out.println("===============================");
 
@@ -235,6 +236,17 @@ public class Main {
                             adf.salvarEmArquivo();
 
                         }
+                        case 9 -> {
+                            System.out.println("Opção selecionada: Abrir Interface Gráfica");
+                            System.out.println("Abrindo Interface Gráfica....");
+                            // Chama a interface gráfica
+                            javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    new InterfaceGrafica().setVisible(true);
+                                }
+                            });
+                        }
 
                         case 0 -> System.out.println("Saindo do sistema... Até logo!");
                         default -> System.out.println("Erro: Opção inválida. Tente novamente.");
@@ -301,6 +313,7 @@ public class Main {
                     System.out.println("5 - Retirar Item do Estoque");
                     System.out.println("6 - Modificar Dados de Usuário");
                     System.out.println("7 - Exibir Usuários");
+                    System.out.println("8 - Executar Interface Grafica");
                     System.out.println("0 - Sair");
                     System.out.println("===============================");
 
@@ -392,6 +405,18 @@ public class Main {
                             for (Usuario usuario : adu.getUsuarios()) {
                                 System.out.println(usuario);
                             }
+                        }
+                        case 8 -> {
+                            System.out.println("Opção selecionada: Abrir Interface Gráfica");
+                            System.out.println("Abrindo Interface Gráfica....");
+
+                            // Chama a interface gráfica
+                            javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    new InterfaceGrafica().setVisible(true);
+                                }
+                            });
                         }
 
                         case 0 -> System.out.println("Saindo do sistema... Até logo!");

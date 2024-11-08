@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class InterfaceGrafica extends JFrame {
@@ -17,7 +18,7 @@ public class InterfaceGrafica extends JFrame {
         // Configurações da janela
         super("PUC ACHADOS"); // Nome Janela
         setSize(600, 500); // tamnho janela
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Encerra o loop do programa quando fechar a tela
+        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Encerra o loop do programa quando fechar a tela
         setLayout(new BorderLayout()); // controlador de coordenadas
 
         // Inicializando a instância de Estoque e os componentes da interface
@@ -59,34 +60,65 @@ public class InterfaceGrafica extends JFrame {
         });
 
         // configurar evento pro botão itens
-//        botaoItens.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                // tive que improvisar um metodo pra ler, pois na hora que estava fazendo
-//                // não havia um metodo para isso igual tem em estoque
-//                String caminhoArquivoItens = "itens.txt"; // talvez necessite mudar
-//                try {
-//                    // carrega o conteúdo do arquivo item.txt
-//                    String conteudoItens = TxtLog.leitor(caminhoArquivoItens);
-//                    // exibe o conteúdo dos itens na área de texto
-//                    textArea.setText("Itens no Sistema:\n\n" + conteudoItens); // talvez de erro
-//                } catch (IOException ex) { // sera que este tratamento q eu fiz seja personalizado
-//                    JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo item.txt: " + ex.getMessage());
-//                }
-//            }
-//        });
-    }
+        botaoItens.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // carrega o arquivo txt, ou seja mesma coisa do botão de cima
+                ArrayList<Item> itensSistema = ArmazenadorDeItem.carregarDoArquivo();
+                StringBuilder conteudoItens = new StringBuilder("Itens no Sistema:\n\n");
 
-    // para inicializar a interface
-    public static void main(String[] args) {
-        // tem que usar isso aqui pra garantir que não haja deadlock na interface
-        // pois ela é uma thread que fica em wait até uma ação mandar um notifine
-        // sera que da pra usar em cyberfisico?
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override // olha o metodo run ai
-            public void run() {
-                new InterfaceGrafica().setVisible(true); // cria a interface e deixa ela visivel
+                // Formatação e exibição dos itens no sistema
+                for (Item item : itensSistema) {
+                    conteudoItens.append("ID: ").append(item.getIdItem())
+                            .append(", Nome: ").append(item.getNomeItem())
+                            .append(", Categoria: ").append(item.getCategoria())
+                            .append(", Descrição: ").append(item.getDecricao())
+                            .append("\n");
+                }
+
+                // Exibe as informações na área de texto
+                textArea.setText(conteudoItens.toString());
+            }
+        });
+
+        // Torna a janela visível e traz para frente
+        setVisible(true);
+        setAlwaysOnTop(true); // Define a janela temporariamente no topo
+        toFront(); // Traz a janela para frente
+        requestFocus(); // Dá o foco à janela
+        setAlwaysOnTop(false); // Permite que a janela seja sobreposta depois
+        // Adiciona o listener para detectar o fechamento da janela
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("===============================");
+                System.out.println("INTERFACE GRAFICA FECHADA");
+                System.out.println("===============================");
+                System.out.println("Escolha uma das opções abaixo:");
+                System.out.println("1 - Cadastrar Usuário");
+                System.out.println("2 - Registrar Item");
+                System.out.println("3 - Exibir itens cadastrados");
+                System.out.println("4 - Adicionar Item ao Estoque");
+                System.out.println("5 - Retirar Item do Estoque");
+                System.out.println("6 - Modificar Dados de Usuário");
+                System.out.println("7 - Exibir Usuários");
+                System.out.println("8 - Executar Interface Grafica");
+                System.out.println("0 - Sair");
+                System.out.println("===============================");
             }
         });
     }
+
+//    // para inicializar a interface
+//    public static void main(String[] args) {
+//        // tem que usar isso aqui pra garantir que não haja deadlock na interface
+//        // pois ela é uma thread que fica em wait até uma ação mandar um notifine
+//        // sera que da pra usar em cyberfisico?
+//        SwingUtilities.invokeLater(new Runnable() {
+//            @Override // olha o metodo run ai
+//            public void run() {
+//                new InterfaceGrafica().setVisible(true); // cria a interface e deixa ela visivel
+//            }
+//        });
+//    }
 }
