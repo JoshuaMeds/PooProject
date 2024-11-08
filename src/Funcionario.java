@@ -29,6 +29,12 @@ public class Funcionario extends Pessoa {
         return funId;
     }
 
+    void modificarUsuario(Usuario u, String novoNome, int novaMatricula){
+
+        System.out.println("Voce nao tem permissao para essa acao!");
+
+    }
+
     public int getRegistro() {
         return registro;
     }

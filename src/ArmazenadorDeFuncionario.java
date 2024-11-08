@@ -25,9 +25,9 @@ public class ArmazenadorDeFuncionario {
         funcionarios.add(u);
     }
 
-    public Funcionario selecionarItem(int id) {
+    public Funcionario selecionarFun(int id) {
         for (Funcionario u : funcionarios) {
-            if (u.getRegistro() == id) {
+            if (u.getFunId() == id) {
                 return u;
             }
         }

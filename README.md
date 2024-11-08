@@ -46,7 +46,8 @@ Todas as Biblitecas Utilizadas:
 Para usar o Achados e perdidos, siga estas etapas:
 
 ```
-<exemplo_de_uso>
+ID DE ADMIN = 6
+ID DE FUNCIONARIO = 7
 ```
 
 ## 🤝 Colaboradores
