@@ -28,7 +28,7 @@ public class ArmazenadorDeUsuario {
     }
 
 
-    public Usuario selecionarItem(int id){
+    public Usuario selecionarUsuario(int id){
         for (Usuario u : users) {
             if (u.getUserId() == id) {
                 return u;
@@ -81,6 +81,9 @@ public class ArmazenadorDeUsuario {
         } catch (IOException e) {
             System.out.println("Erro ao carregar itens do arquivo: " + e.getMessage());
         }
+        return users;
+    }
+    public ArrayList<Usuario> getUsuarios() {
         return users;
     }
 }

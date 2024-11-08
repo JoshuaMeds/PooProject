@@ -59,5 +59,14 @@ public class Usuario extends Pessoa {
         System.out.println("Usuario ID#" + this.getUserId() + " " + this.getNome() + " cadastrado e armazenado com sucesso!");
     }
 
+    public void atualizarDados(String novoNome, int novaMatricula) {
+        this.nome = novoNome;
+        this.matricula = novaMatricula;
+        System.out.println("Dados atualizados: Nome - " + novoNome + ", Matrícula - " + novaMatricula);
+    }
 
+    // metodo toString para exibir as informações do usuário
+    public String toString() {
+        return "ID: " + this.userId + ", Nome: " + this.nome + ", CPF: " + this.cpf + ", Matrícula: " + this.matricula;
+    }
 }

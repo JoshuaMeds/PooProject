@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.lang.reflect.Executable;
 import java.util.Scanner;
 
 public class Main {
@@ -13,10 +12,11 @@ public class Main {
         ArmazenadorDeUsuario adu = new ArmazenadorDeUsuario();
         Estoque estoque = new Estoque(1);
         Funcionario funcionario = new Funcionario("123.456.789-00", "João Silva", 1234);
+        Admin admin = new Admin("987.654.321-00", "Admin User", 4321); // Criar um Admin para modificar dados
 
         int escolha = -1;
 
-        System.out.println("Bem-vindo ao Sistema de Achados e perdidos!");
+        System.out.println("Bem-vindo ao Sistema de Achados e Perdidos!");
 
         try {
             while (escolha != 0) {
@@ -47,6 +47,8 @@ public class Main {
                 System.out.println("3 - Exibir itens cadastrados");
                 System.out.println("4 - Adicionar Item ao Estoque");
                 System.out.println("5 - Retirar Item do Estoque");
+                System.out.println("6 - Modificar Dados de Usuário");
+                System.out.println("7 - Exibir Usuários Cadastrados");
                 System.out.println("0 - Sair");
                 System.out.println("===============================");
 
@@ -108,8 +110,34 @@ public class Main {
                     case 5 -> {
                         System.out.println("Opção selecionada: Retirar Item do Estoque");
                         System.out.println("Itens disponíveis no estoque:");
-
+                        // Lógica para listar itens do estoque aqui
                     }
+
+                    case 6 -> {
+                        System.out.println("Opção selecionada: Modificar Dados de Usuário");
+                        System.out.print("Informe o ID do usuário que deseja modificar: ");
+                        int userId = sc.nextInt();
+                        Usuario usuario = adu.selecionarUsuario(userId); // Método para buscar o usuário pelo ID
+
+                        if (usuario != null) {
+                            System.out.print("Novo nome: ");
+                            String novoNome = sc.next();
+                            System.out.print("Nova matrícula: ");
+                            int novaMatricula = sc.nextInt();
+                            admin.modificarUsuario(usuario, novoNome, novaMatricula);
+                            adu.salvarEmArquivo();
+                        } else {
+                            System.out.println("Usuário não encontrado.");
+                        }
+                    }
+
+                    case 7 -> {
+                        System.out.println("Opção selecionada: Exibir Usuários Cadastrados");
+                        for (Usuario usuario : adu.getUsuarios()) { // Supondo que `adu` tenha um método `getUsuarios`
+                            System.out.println(usuario);
+                        }
+                    }
+
                     case 0 -> System.out.println("Saindo do sistema... Até logo!");
                     default -> System.out.println("Erro: Opção inválida. Tente novamente.");
                 }
@@ -126,14 +154,3 @@ public class Main {
         }
     }
 }
-
-
-//try {
-//ExcecaoPersonalizada excecao = new ExcecaoPersonalizada();
-//            excecao.setMensagem("Erro específico de validação"); // Define a mensagem
-//            throw excecao; // Lança a exceção com a mensagem personalizada
-//        } catch (ExcecaoPersonalizada e) {
-//        System.out.println("Mensagem da exceção: " + e.getMensagem());
-//        }
-//        }
-//        }
