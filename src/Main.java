@@ -41,7 +41,21 @@ public class Main {
                 }
 
                 Usuario u = new Usuario();
-                u.setContador(adu.RetornarIdTxt());
+                Funcionario f = new Funcionario();
+
+                if(adf.retornarRegistroTxt() > adu.RetornarIdTxt()){
+                    int c = adf.retornarRegistroTxt();
+                    u.setContador(c);
+                    f.setContador(c);
+                } else if (adf.retornarRegistroTxt() < adu.RetornarIdTxt()) {
+                    int c = adu.RetornarIdTxt();
+                    u.setContador(c);
+                    f.setContador(c);
+                } else {
+                    int c = adf.retornarRegistroTxt();
+                    u.setContador(c);
+                    f.setContador(c);
+                }
 
                 System.out.println("===============================");
                 System.out.println("Escolha uma das opções abaixo:");
@@ -136,17 +150,23 @@ public class Main {
                     }
 
                     case 7 -> {
-                        System.out.println("Opção selecionada: Exibir Usuários Cadastrados");
-                        for (Usuario usuario : adu.getUsuarios()) { // Supondo que `adu` tenha um método `getUsuarios`
+                        System.out.println("Opção selecionada: Exibir Usuários e Funcionarios Cadastrados");
+                        System.out.println("\nUsuarios:\n");
+                        for (Usuario usuario : adu.getUsuarios()) {
                             System.out.println(usuario);
+                        }
+
+                        System.out.println("\nFuncionarios\n");
+                        for (Funcionario funcionario : adf.getFuncionarios()) {
+                            System.out.println("ID: " + funcionario.getFunId() + ", Nome: " + funcionario.getNome() + ", CPF: " + funcionario.getCpf() + ", Registro: " + funcionario.getRegistro());
                         }
                     }
 
                     case 8 -> {
                         System.out.println("Opção selecionada: Cadastrar Funcionario\n");
-                        Funcionario f = new Funcionario();
-                        f.registrarPessoa();
-                        adf.armazenarFun(f);
+                        Funcionario fun = new Funcionario();
+                        fun.registrarPessoa();
+                        adf.armazenarFun(fun);
                         adf.salvarEmArquivo();
 
                     }

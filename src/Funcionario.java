@@ -6,9 +6,27 @@ import java.util.Scanner;
 
 public class Funcionario extends Pessoa {
     protected int registro;
+    private static int contador;
+    private int funId;
 
     Funcionario(){
+    this.funId = gerarFunId();
+    }
 
+    public static void setContador(int contador) {
+        Funcionario.contador = contador + 1;
+    }
+
+    public void setFunId(int id) {
+        this.funId = id;
+    }
+
+    public int gerarFunId(){
+        return contador++;
+    }
+
+    public int getFunId() {
+        return funId;
     }
 
     public int getRegistro() {
@@ -17,18 +35,6 @@ public class Funcionario extends Pessoa {
 
     public void setRegistro(int registro) {
         this.registro = registro;
-    }
-
-    public void registrarPerda(Pessoa p){
-
-    }
-
-    public void registrarRetirada(Pessoa p){
-
-    }
-
-    public void visualizarRetiradas(){
-
     }
 
     public void alterarCredenciais(Pessoa p, String novoNome) {

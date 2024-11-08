@@ -7,8 +7,8 @@ public class ArmazenadorDeFuncionario {
     public int retornarRegistroTxt() {
         int c = 0;
         for (Funcionario funcionario : funcionarios) {
-            if (funcionario.getRegistro() > c) {
-                c = funcionario.getRegistro();
+            if (funcionario.getFunId() > c) {
+                c = funcionario.getFunId();
             }
         }
         return c;
@@ -68,5 +68,9 @@ public class ArmazenadorDeFuncionario {
             }
         }
         return f;
+    }
+
+    public ArrayList<Funcionario> getFuncionarios() {
+        return funcionarios;
     }
 }
