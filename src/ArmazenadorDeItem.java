@@ -91,4 +91,8 @@ public class ArmazenadorDeItem {
         }
         return itens;
     }
+
+    public ArrayList<Item> getItens() {
+        return itens;
+    }
 }

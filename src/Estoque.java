@@ -104,4 +104,8 @@ public class Estoque {
         }
         return itens;
     }
+
+    public ArrayList<Item> getItens() {
+        return itens;
+    }
 }

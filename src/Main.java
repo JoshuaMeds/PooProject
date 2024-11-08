@@ -147,13 +147,17 @@ public class Main {
                         }
                         case 3 -> {
                             System.out.println("Opção selecionada: Exibir itens cadastrados");
-                            TxtLog lerEscrever = new TxtLog();
-                            String caminhoLeitura = "src/funcionarios.txt";
-                            String conteudo = TxtLog.leitor(caminhoLeitura);
-                            System.out.println("Conteúdo Lido:");
-                            System.out.println(conteudo);
-                            lerEscrever.escritor(caminhoLeitura, conteudo);
-                            System.out.println("Conteúdo escrito em: " + caminhoLeitura);
+
+                            System.out.println("\nItens Perdidos:\n");
+                            for (Item item : adi.getItens()) {
+                                System.out.println(item);
+                            }
+
+                            System.out.println("\nItens em Estoque\n");
+                            for (Item item : estoque.getItens()) {
+                                System.out.println(item);
+                            }
+
                         }
                         case 4 -> {
                             System.out.println("Opção selecionada: Adicionar Item ao Estoque\n");
@@ -321,13 +325,16 @@ public class Main {
                         }
                         case 3 -> {
                             System.out.println("Opção selecionada: Exibir itens cadastrados");
-                            TxtLog lerEscrever = new TxtLog();
-                            String caminhoLeitura = "src/funcionarios.txt";
-                            String conteudo = TxtLog.leitor(caminhoLeitura);
-                            System.out.println("Conteúdo Lido:");
-                            System.out.println(conteudo);
-                            lerEscrever.escritor(caminhoLeitura, conteudo);
-                            System.out.println("Conteúdo escrito em: " + caminhoLeitura);
+
+                            System.out.println("\nItens Perdidos:\n");
+                            for (Item item : adi.getItens()) {
+                                System.out.println(item);
+                            }
+
+                            System.out.println("\nItens em Estoque\n");
+                            for (Item item : estoque.getItens()) {
+                                System.out.println(item);
+                            }
                         }
                         case 4 -> {
                             System.out.println("Opção selecionada: Adicionar Item ao Estoque\n");
