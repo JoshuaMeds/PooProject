@@ -59,22 +59,22 @@ public class InterfaceGrafica extends JFrame {
         });
 
         // configurar evento pro botão itens
-        botaoItens.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // tive que improvisar um metodo pra ler, pois na hora que estava fazendo
-                // não havia um metodo para isso igual tem em estoque
-                String caminhoArquivoItens = "itens.txt"; // talvez necessite mudar
-                try {
-                    // carrega o conteúdo do arquivo item.txt
-                    String conteudoItens = TxtLog.leitor(caminhoArquivoItens);
-                    // exibe o conteúdo dos itens na área de texto
-                    textArea.setText("Itens no Sistema:\n\n" + conteudoItens); // talvez de erro
-                } catch (IOException ex) { // sera que este tratamento q eu fiz seja personalizado
-                    JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo item.txt: " + ex.getMessage());
-                }
-            }
-        });
+//        botaoItens.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                // tive que improvisar um metodo pra ler, pois na hora que estava fazendo
+//                // não havia um metodo para isso igual tem em estoque
+//                String caminhoArquivoItens = "itens.txt"; // talvez necessite mudar
+//                try {
+//                    // carrega o conteúdo do arquivo item.txt
+//                    String conteudoItens = TxtLog.leitor(caminhoArquivoItens);
+//                    // exibe o conteúdo dos itens na área de texto
+//                    textArea.setText("Itens no Sistema:\n\n" + conteudoItens); // talvez de erro
+//                } catch (IOException ex) { // sera que este tratamento q eu fiz seja personalizado
+//                    JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo item.txt: " + ex.getMessage());
+//                }
+//            }
+//        });
     }
 
     // para inicializar a interface

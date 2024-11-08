@@ -150,12 +150,12 @@ public class Main {
 
                             System.out.println("\nItens Perdidos:\n");
                             for (Item item : adi.getItens()) {
-                                System.out.println(item);
+                                System.out.println("ID: " + item.getIdItem() + ", Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descricao: " + item.getDecricao());
                             }
 
                             System.out.println("\nItens em Estoque\n");
                             for (Item item : estoque.getItens()) {
-                                System.out.println(item);
+                                System.out.println("ID: " + item.getIdItem() + ", Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descricao: " + item.getDecricao());
                             }
 
                         }
