@@ -14,15 +14,7 @@ public class ArmazenadorDeItem {
         }
         return c;
     }
-
-    public Item selecionarItemPos(int pos){
-        if(pos < 0){
-            pos ++;
-        }
-        return itens.get(pos);
-    }
-
-
+    
     public void armazenarItem(Item i){
         itens.add(i);
     }

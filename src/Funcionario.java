@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Funcionario extends Pessoa {
+public class Funcionario extends Pessoa implements Serializable {
+    private static final long serialVersionUID = -3678431921001929337L;
     protected int registro;
     private static int contador;
     private int funId;
@@ -43,14 +44,6 @@ public class Funcionario extends Pessoa {
         this.registro = registro;
     }
 
-    public void alterarCredenciais(Pessoa p, String novoNome) {
-        if (p instanceof Usuario) {
-            p.setNome(novoNome);
-            System.out.println("Nome do usuário alterado para: " + novoNome);
-        } else {
-            System.out.println("Funcionário só pode alterar credenciais de usuários.");
-        }
-    }
 
     @Override
     public void registrarPessoa() {

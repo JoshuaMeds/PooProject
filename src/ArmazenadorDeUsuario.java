@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class ArmazenadorDeUsuario {
     private ArrayList<Usuario> users =  new ArrayList<>();
 
-    public int RetornarIdTxt(){
+    public int retornarIdTxt(){
         int c = 0;
 
         for (Usuario user : users) {
@@ -14,14 +14,6 @@ public class ArmazenadorDeUsuario {
         }
         return c;
     }
-
-    public Usuario selecionarUserPos(int pos){
-        if(pos < 0){
-            pos ++;
-        }
-        return users.get(pos);
-    }
-
 
     public void armazenarUser(Usuario u){
         users.add(u);

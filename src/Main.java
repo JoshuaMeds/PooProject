@@ -13,7 +13,6 @@ public class Main {
         ArmazenadorDeUsuario adu = new ArmazenadorDeUsuario();
 
         Estoque estoque = new Estoque(1);
-        // Criar um Admin para modificar dados
 
         int escolha = -1;
 
@@ -40,12 +39,12 @@ public class Main {
         Usuario u = new Usuario();
         Funcionario f = new Funcionario();
 
-        if (adf.retornarRegistroTxt() > adu.RetornarIdTxt()) {
+        if (adf.retornarRegistroTxt() > adu.retornarIdTxt()) {
             int c = adf.retornarRegistroTxt();
             u.setContador(c);
             f.setContador(c);
-        } else if (adf.retornarRegistroTxt() < adu.RetornarIdTxt()) {
-            int c = adu.RetornarIdTxt();
+        } else if (adf.retornarRegistroTxt() < adu.retornarIdTxt()) {
+            int c = adu.retornarIdTxt();
             u.setContador(c);
             f.setContador(c);
         } else {
@@ -72,8 +71,6 @@ public class Main {
 
         if (funlogin instanceof Admin) {
 
-            //todo: implementar main como ADMIN
-
             try {
                 while (escolha != 0) {
 
@@ -98,12 +95,12 @@ public class Main {
                     Usuario us = new Usuario();
                     Funcionario fu = new Funcionario();
 
-                    if (adf.retornarRegistroTxt() > adu.RetornarIdTxt()) {
+                    if (adf.retornarRegistroTxt() > adu.retornarIdTxt()) {
                         int c = adf.retornarRegistroTxt();
                         us.setContador(c);
                         fu.setContador(c);
-                    } else if (adf.retornarRegistroTxt() < adu.RetornarIdTxt()) {
-                        int c = adu.RetornarIdTxt();
+                    } else if (adf.retornarRegistroTxt() < adu.retornarIdTxt()) {
+                        int c = adu.retornarIdTxt();
                         us.setContador(c);
                         fu.setContador(c);
                     } else {
@@ -187,9 +184,22 @@ public class Main {
                         }
 
                         case 5 -> {
-                            System.out.println("Opção selecionada: Retirar Item do Estoque");
-                            System.out.println("Itens disponíveis no estoque:");
-                            // Lógica para listar itens do estoque aqui
+                            System.out.println("Opção selecionada: Retirar Item do Estoque\n");
+                            System.out.println("\nItens em Estoque\n");
+                            for (Item item : estoque.getItens()) {
+                                System.out.println("ID: " + item.getIdItem() + ", Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descricao: " + item.getDecricao());
+                            }
+
+                            System.out.println("\nInforme o ID do item a ser retirado");
+                            int id = sc.nextInt();
+
+                            if(estoque.retirarItem(id)){
+                                System.out.println("Item ID#" + id + " retirado do estoque com sucesso!");
+                                estoque.salvarEmArquivo();
+                            } else {
+                                System.out.println("Item ID#" + id + " não retirado do estoque, algum erro ocorreu.");
+                            }
+
                         }
 
                         case 6 -> {
@@ -289,12 +299,12 @@ public class Main {
                     Usuario us = new Usuario();
                     Funcionario fu = new Funcionario();
 
-                    if (adf.retornarRegistroTxt() > adu.RetornarIdTxt()) {
+                    if (adf.retornarRegistroTxt() > adu.retornarIdTxt()) {
                         int c = adf.retornarRegistroTxt();
                         us.setContador(c);
                         fu.setContador(c);
-                    } else if (adf.retornarRegistroTxt() < adu.RetornarIdTxt()) {
-                        int c = adu.RetornarIdTxt();
+                    } else if (adf.retornarRegistroTxt() < adu.retornarIdTxt()) {
+                        int c = adu.retornarIdTxt();
                         us.setContador(c);
                         fu.setContador(c);
                     } else {
@@ -341,12 +351,12 @@ public class Main {
 
                             System.out.println("\nItens Perdidos:\n");
                             for (Item item : adi.getItens()) {
-                                System.out.println(item);
+                                System.out.println("ID: " + item.getIdItem() + ", Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descricao: " + item.getDecricao());
                             }
 
                             System.out.println("\nItens em Estoque\n");
                             for (Item item : estoque.getItens()) {
-                                System.out.println(item);
+                                System.out.println("ID: " + item.getIdItem() + ", Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descricao: " + item.getDecricao());
                             }
                         }
                         case 4 -> {
@@ -376,9 +386,21 @@ public class Main {
                         }
 
                         case 5 -> {
-                            System.out.println("Opção selecionada: Retirar Item do Estoque");
-                            System.out.println("Itens disponíveis no estoque:");
-                            // Lógica para listar itens do estoque aqui
+                            System.out.println("Opção selecionada: Retirar Item do Estoque\n");
+                            System.out.println("\nItens em Estoque\n");
+                            for (Item item : estoque.getItens()) {
+                                System.out.println("ID: " + item.getIdItem() + ", Nome: " + item.getNomeItem() + ", Categoria: " + item.getCategoria() + ", Descricao: " + item.getDecricao());
+                            }
+
+                            System.out.println("\nInforme o ID do item a ser retirado");
+                            int id = sc.nextInt();
+
+                            if(estoque.retirarItem(id)){
+                                System.out.println("Item ID#" + id + " retirado do estoque com sucesso!");
+                                estoque.salvarEmArquivo();
+                            } else {
+                                System.out.println("Item ID#" + id + " não retirado do estoque, algum erro ocorreu.");
+                            }
                         }
 
                         case 6 -> {

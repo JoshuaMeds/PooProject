@@ -14,13 +14,6 @@ public class ArmazenadorDeFuncionario {
         return c;
     }
 
-    public Funcionario selecionarUserPos(int pos) {
-        if (pos < 0) {
-            pos++;
-        }
-        return funcionarios.get(pos);
-    }
-
     public void armazenarFun(Funcionario u) {
         funcionarios.add(u);
     }
